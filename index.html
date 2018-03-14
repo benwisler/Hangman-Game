@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Simpsons Hangman Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="assets/javascript/game.js"></script>
+</head>
+
+<body>
+    <h1>Simpsons Hangman</h1>
+    <h2>Guess a letter to get started!</h2>
+    <div id="windiv">
+        <h3>Wins: </h3>
+    </div>
+    <div id="lossdiv">
+        <h3>Losses: </h3>
+    </div>
+    <div id="word"></div>
+    
+    <div id="guessRemainDiv">Guesses Remaining: </div>
+    <div id="guessedLetters">Letters Guessed: </div>
+    <script type="text/javascript">
+        var theme = new Audio("simpsong_01.wav")
+
+        theme.play();
+        theme.loop = true;
+        /*  Use key events to listen for the letters that your players will 
+        type. When the user presses the key it records the keypress and then sets it to userguess
+        */
+        document.onkeyup = function (event) {
+            var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+            // run game loop with user guess
+            // checkAnswer(userGuess);
+            // guessedLetters(userGuess);
+            for (var i = 0; i < 27; i++) {
+                if (userGuess === alphabet[i]) {
+
+                        game(userGuess);
+
+                        // replace html with # of Wins
+                        document.getElementById("windiv").innerHTML = '<h3>Wins: </h3>' + wins;
+                        document.getElementById("lossdiv").innerHTML = '<h3>Losses: </h3>' + losses;
+
+                        // replace html with word
+                        document.getElementById("word").innerHTML = displayed.join(' ');
+
+
+                        // replace html with guesses remaining
+                        document.getElementById("guessRemainDiv").innerHTML = 'Guesses Remaining: ' + tries;
+
+
+                        // replace html with guessed letters
+                        document.getElementById("guessedLetters").innerHTML = "Guessed Letters: " + guessed.join(" ");
+                    }
+                }
+            }
+        
+    </script>
+</body>
+
+</html>
