@@ -5,8 +5,7 @@ var guessed = [];
 var tries = 5;
 var wins = 0;
 var losses = 0;
-var loseaudio = new Audio("doh3.wav");
-var winaudio = new Audio("champion.wav")
+
 var word = words[Math.floor(Math.random() * words.length)];
 console.log(word);
 var gameOn = true;

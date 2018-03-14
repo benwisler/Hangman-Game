@@ -24,8 +24,9 @@
     <div id="guessRemainDiv">Guesses Remaining: </div>
     <div id="guessedLetters">Letters Guessed: </div>
     <script type="text/javascript">
-        var theme = new Audio("simpsong_01.wav")
-
+        var theme = new Audio("assets/sounds/simpsong_01.wav")
+        var loseaudio = new Audio("assets/sounds/doh3.wav");
+        var winaudio = new Audio("assets/sounds/champion.wav")
         theme.play();
         theme.loop = true;
         /*  Use key events to listen for the letters that your players will 
